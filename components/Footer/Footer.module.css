@@ -1,0 +1,33 @@
+.footer {
+    padding: 0 2em;
+    background-color: rgb(236, 236, 236);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75em;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navigation>ul {
+    list-style-type: none;
+    line-height: 150%;
+}
+
+.navigation>ul>li>a:hover {
+    text-decoration: underline;
+}
+
+.info {
+    line-height: 10%;
+}
+
+.socials {
+    display: inline-flex;
+    gap: 1em;
+    margin-right: 0.5em;
+}

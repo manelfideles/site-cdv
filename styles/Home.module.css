@@ -1,0 +1,17 @@
+.home {
+  margin: 0 2em;
+}
+
+.hero {
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40vh;
+  font-size: 2em;
+  text-align: center;
+}
+
+.hero>p>span {
+  font-weight: bold;
+}
