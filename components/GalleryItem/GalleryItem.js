@@ -1,17 +1,18 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { title } from './GalleryItem.module.css';
+import { styles } from './GalleryItem.module.css';
 
-export default function GalleryItem({ size, thumbnail, info }) {
+export default function GalleryItem({ title, link, thumbnail }) {
+
     return (
-        <a href={info.link}>
+        <a href={link}>
             <Image
-                src={thumbnail ? `/images/${thumbnail}` : '/images/placeholder.png'}
-                height={size[0]}
-                width={size[1]}
+                src={thumbnail['media_details'].sizes.medium['source_url']}
+                width={180} height={120}
+                alt={thumbnail["alt_text"]}
             />
-            <span className={title}>{info.title.rendered}</span>
+            <span /* className={styles.post_title} */>{title.rendered}</span>
         </a>
     )
 }
