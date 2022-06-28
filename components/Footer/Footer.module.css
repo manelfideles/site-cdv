@@ -18,7 +18,8 @@
     line-height: 150%;
 }
 
-.navigation>ul>li>a:hover {
+.navigation>ul>li>a:hover,
+.info>a:hover {
     text-decoration: underline;
 }
 

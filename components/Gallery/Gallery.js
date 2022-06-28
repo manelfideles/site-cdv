@@ -7,13 +7,14 @@ import { gallery, load } from './Gallery.module.css'
 export default function Gallery({ posts }) {
 
     function displayGallery(arr) {
-        return arr.map((post, index) => {
-            if (post['_embedded']['wp:featuredmedia'])
-                return <GalleryItem key={index}
+        return arr.map(post => {
+            if (post['embedded']['wp:featuredmedia'] !== undefined) {
+                return <GalleryItem key={post.id}
                     title={post.title}
                     link={post.link}
-                    thumbnail={post['_embedded']['wp:featuredmedia'][0]}
+                    thumbnail={post['embedded']['wp:featuredmedia'][0]}
                 />
+            }
         })
     }
 
