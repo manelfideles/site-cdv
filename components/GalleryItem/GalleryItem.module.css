@@ -1,3 +1,21 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    border: 2px solid lightgrey;
+}
+
 .post_title {
     font-weight: bold;
+    text-align: left;
+    padding: 1em;
+    font-size: 1em;
+    position: absolute;
+    bottom: 0;
+    background-color: white;
+}
+
+.post_title:hover {
+    text-decoration: underline;
 }
