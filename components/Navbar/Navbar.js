@@ -32,32 +32,30 @@ export default function Navbar() {
                 <a href="/">People</a>
                 <a href="/">Research</a>
                 <a href="/">Publications</a>
-                <a href='/'>
-                    <Image src='/icons/search.svg' height={18} width={18} />
+                <a href="/">
+                    <Image
+                        src='/icons/search.svg'
+                        height={18}
+                        width={18}
+                    />
                 </a>
             </div>
             <a className={logoMobile} href='/'>
                 <Image src='/icons/logo-mobile.svg' height={50} width={100} />
             </a>
-            <button onClick={() => setIsOpen(true)} className={mobileButton}>
-                <Image src='/icons/bars-solid.svg' height={25} width={25} />
-            </button>
             {isOpen ? (
                 <div className={navigationMobile}>
-                    <div>
-                        <button className={logo} onClick={() => changePage('/')}>
-                            <Image src='/icons/logo-mobile.svg' height={75} width={75} />
-                        </button>
-                        <button onClick={() => setIsOpen(false)} className={mobileButton}>Menu</button>
-                    </div>
-                    <div>
-                        <button onClick={() => changePage('/')}>About</button>
-                        <button onClick={() => changePage('/')}>People</button>
-                        <button onClick={() => changePage('/')}>Research</button>
-                        <button onClick={() => changePage('/')}>Publications</button>
-                    </div>
+                    <button onClick={() => setIsOpen(false)} className={close}>
+                        Close
+                    </button>
+                    <button onClick={() => changePage('/')}>About</button>
+                    <button onClick={() => changePage('/')}>People</button>
+                    <button onClick={() => changePage('/')}>Research</button>
+                    <button onClick={() => changePage('/')}>Publications</button>
                 </div>
-            ) : null}
+            ) : <button onClick={() => setIsOpen(true)} className={mobileButton}>
+                <Image src='/icons/bars-solid.svg' height={25} width={25} />
+            </button>}
         </nav>
     )
 }
