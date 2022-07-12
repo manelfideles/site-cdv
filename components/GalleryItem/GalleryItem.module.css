@@ -6,6 +6,10 @@
     border: 2px solid lightgrey;
 }
 
+.item img {
+    object-fit: cover;
+}
+
 .post_title {
     font-weight: bold;
     text-align: left;

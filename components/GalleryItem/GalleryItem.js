@@ -13,6 +13,7 @@ export default function GalleryItem({ title, link, thumbnail }) {
             <img
                 src={thumbnail['media_details'] ? thumbnail['media_details'].sizes.full['source_url'] : '/images/placeholder.png'}
                 alt={thumbnail["alt_text"]}
+                height={Math.random() > 0.5 ? '200px' : '400px'}
                 className={post_image}
             />
             <span className={post_title}>
