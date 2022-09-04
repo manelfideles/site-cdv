@@ -1,0 +1,26 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    border: 2px solid lightgrey;
+}
+
+.item img {
+    object-fit: cover;
+}
+
+.post_title {
+    font-weight: bold;
+    text-align: left;
+    padding: 1em;
+    font-size: 1em;
+    position: absolute;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+}
+
+.post_title:hover {
+    text-decoration: underline;
+}

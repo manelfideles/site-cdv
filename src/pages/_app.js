@@ -1,5 +1,8 @@
 import Head from 'next/head';
-import '../styles/globals.css'
+import Navbar from 'components/Navbar';
+import Footer from 'components/Footer';
+
+import 'styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -9,7 +12,9 @@ function MyApp({ Component, pageProps }) {
         <meta name="description" content="Computational Design & Visualization Lab's @ DEI-UC" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Navbar />
       <Component {...pageProps} />
+      <Footer />
     </>
   )
 }

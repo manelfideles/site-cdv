@@ -1,19 +1,11 @@
-const BASE_URL = 'https://cdv.dei.uc.pt/wp-json/wp/v2';
-
-export async function getPosts(per_page) {
-    const postsRes = await fetch(BASE_URL + `/posts?_embed&per_page=${per_page}`);
-    const posts = await postsRes.json();
-    return posts;
-}
-
-export async function getPost(slug) {
+/*
+async function getPost(slug) {
     const posts = await getPosts();
     const postArray = posts.filter((post) => post.slug == slug);
     const post = postArray.length > 0 ? postArray[0] : null;
     return post;
 }
 
-/*
 export async function getEvents() {
     const eventsRes = await fetch(BASE_URL + "/events?_embed");
     const events = await eventsRes.json();
@@ -47,3 +39,18 @@ export async function getSlugs(type) {
     return elementsIds;
 }
 */
+
+import axios from 'axios';
+
+const axiosInstance = axios.create({
+    baseURL: 'https://cdv.dei.uc.pt/wp-json/wp/v2',
+    timeout: 150 * 1000,
+});
+
+const api = {
+    getPosts(query) {
+        return axiosInstance.get('/posts' + query);
+    },
+};
+
+export default api;
