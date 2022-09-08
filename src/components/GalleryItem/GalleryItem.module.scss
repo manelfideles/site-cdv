@@ -7,7 +7,7 @@
     object-fit: cover;
   }
 
-  span {
+  a {
     @include font($fontWeight: 700);
     background-color: $white;
     width: 100%;

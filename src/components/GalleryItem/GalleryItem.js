@@ -21,11 +21,9 @@ export default function GalleryItem({ title, link, thumbnail, term }) {
         alt='post thumbnail'
         height={calcThumbnailHeight()}
       />
-      <span>
-        <a href={link}>
-          {title}
-        </a>
-      </span>
+      <a href={link}>
+        {title}
+      </a>
     </div>
   )
 }

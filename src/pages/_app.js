@@ -1,6 +1,8 @@
 import Head from 'next/head';
-import Navbar from 'components/Navbar';
-import Footer from 'components/Footer';
+import dynamic from 'next/dynamic';
+
+const Navbar = dynamic(() => import('components/Navbar'));
+const Footer = dynamic(() => import('components/Footer'));
 
 import 'styles/globals.scss';
 
