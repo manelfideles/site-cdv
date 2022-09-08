@@ -18,13 +18,15 @@ export default function Gallery({ posts }) {
       id,
       title,
       link,
-      thumbnail
+      thumbnail,
+      term
     }) =>
       <GalleryItem
         key={id}
         title={title}
         link={link}
         thumbnail={thumbnail}
+        term={term}
       />
     )
   }

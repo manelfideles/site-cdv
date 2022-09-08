@@ -4,7 +4,7 @@ import {
   useCallback
 } from 'react';
 
-import api from '../networking';
+import api from 'networking';
 
 export const useFetch = ({ query }) => {
 

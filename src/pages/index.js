@@ -33,11 +33,18 @@ export default function Home() {
       ?.['sizes']
       ?.['thumbnail']
       ?.['source_url'];
+
+    const term = post
+      ?.['_embedded']
+      ?.['wp:term']
+      ?.[0][0]['slug']
+
     return {
       id: id,
       link: link,
       title: title.rendered,
-      thumbnail: thumbnail
+      thumbnail: thumbnail,
+      term: term,
     }
   }
 

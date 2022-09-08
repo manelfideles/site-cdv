@@ -1,11 +1,6 @@
 import styles from './GalleryItem.module.scss';
-/* 
- * wp_term para saber a categoria
- * projects = 2x2
- * news = 2x1
- */
 
-export default function GalleryItem({ title, link, thumbnail }) {
+export default function GalleryItem({ title, link, thumbnail, term }) {
   const renderThumbnail = () => {
     return ![undefined, null].includes(thumbnail)
       ? thumbnail
@@ -16,10 +11,12 @@ export default function GalleryItem({ title, link, thumbnail }) {
       <img
         src={renderThumbnail()}
         alt='post thumbnail'
-        height={Math.random() > 0.5 ? '200px' : '300px'}
+        height={term === 'projects' ? '300px' : '150px'}
       />
       <span>
-        <a href={link}>{title}</a>
+        <a href={link}>
+          {title}
+        </a>
       </span>
     </div>
   )
