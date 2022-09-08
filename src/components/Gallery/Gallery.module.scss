@@ -1,21 +1,16 @@
-.gallery {
-    display: flex;
-    flex-direction: column;
-}
-
 ._grid {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    margin-left: -30px;
     width: auto;
+    margin: 3rem 5rem;
 }
 
 ._column {
-    padding-left: 30px;
+    padding-left: 2rem;
     background-clip: padding-box;
 }
 
 ._column>div {
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
 }

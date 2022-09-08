@@ -1,0 +1,22 @@
+@import 'styles/mixins.scss';
+
+.footer {
+  @include flex($justifyContent: space-between);
+  @include font($fontSize: 0.75rem);
+  background-color: $neutralLight20;
+  padding: 1rem 5rem;
+  line-height: 150%;
+
+  .navigation {
+    @include flex();
+
+    &>ul {
+      list-style-type: none;
+    }
+  }
+
+  .socials {
+    @include flex();
+    margin-right: 0.5em;
+  }
+}

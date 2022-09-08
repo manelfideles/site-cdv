@@ -1,0 +1,15 @@
+@import 'styles/mixins.scss';
+
+.itemCard {
+  @include flex($flexDirection: column, $justifyContent: center, $alignItems: auto, $gap: 1rem);
+
+  img {
+    object-fit: cover;
+  }
+
+  span {
+    @include font($fontWeight: 700);
+    background-color: $white;
+    width: 100%;
+  }
+}

@@ -1,0 +1,16 @@
+@import './mixins.scss';
+
+.loadMoreContainer {
+  @include flex($justifyContent: center);
+  @include size(100%, 20vh);
+
+  &>button {
+    @include font($fontWeight: 600, $color: $neutralDark20);
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

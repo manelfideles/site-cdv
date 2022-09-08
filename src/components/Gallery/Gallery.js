@@ -2,9 +2,7 @@ import GalleryItem from 'components/GalleryItem';
 
 import Masonry from 'react-masonry-css';
 
-import { placeholderImage } from '../../../public/assets';
-
-import styles from './Gallery.module.css';
+import styles from './Gallery.module.scss';
 
 const breakpointConfig = {
   default: 4,
@@ -26,7 +24,7 @@ export default function Gallery({ posts }) {
         key={id}
         title={title}
         link={link}
-        thumbnail={thumbnail || placeholderImage}
+        thumbnail={thumbnail}
       />
     )
   }

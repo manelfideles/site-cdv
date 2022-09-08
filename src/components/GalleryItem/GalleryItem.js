@@ -1,26 +1,24 @@
-import { placeholderImage } from '../../../public/assets';
-
-import styles from './GalleryItem.module.css';
+import styles from './GalleryItem.module.scss';
+/* 
+ * wp_term para saber a categoria
+ * projects = 2x2
+ * news = 2x1
+ */
 
 export default function GalleryItem({ title, link, thumbnail }) {
-  /* 
-   * wp_term para saber a categoria
-   * projects = 2x2
-   * news = 2x1
-   */
+  const renderThumbnail = () => {
+    return ![undefined, null].includes(thumbnail)
+      ? thumbnail
+      : '/assets/images/placeholder.png'
+  }
   return (
-    <div className={styles.item}>
-      {/* <img
-        src={thumbnail['media_details'] ? thumbnail['media_details'].sizes.full['source_url'] : '/images/placeholder.png'}
-        alt={thumbnail["alt_text"]}
-        height={Math.random() > 0.5 ? '200px' : '400px'}
-        className={styles.post_image}
-      /> */}
+    <div className={styles.itemCard}>
       <img
-        src={/* thumbnail?.sizes?.thumbnail?.source_url ||  */ placeholderImage}
-        alt={thumbnail?.alt_text}
+        src={renderThumbnail()}
+        alt='post thumbnail'
+        height={Math.random() > 0.5 ? '200px' : '300px'}
       />
-      <span className={styles.post_title}>
+      <span>
         <a href={link}>{title}</a>
       </span>
     </div>

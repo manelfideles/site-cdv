@@ -10,7 +10,7 @@ import { useFetch } from 'hooks/useFetch';
 import Gallery from 'components/Gallery';
 import Hero from 'components/Hero';
 
-import styles from 'styles/Home.module.css';
+import styles from 'styles/Home.module.scss';
 
 const baseQuery = '?_embed&_fields=id,title,link,_links&page=1&per_page=15';
 
@@ -27,11 +27,12 @@ export default function Home() {
   const formatPost = (post) => {
     const { id, link, title } = post;
     const thumbnail = post
-    ['_embedded']['wp:featuredmedia']
+      ?.['_embedded']
+      ?.['wp:featuredmedia']
       ?.[0]['media_details']
-    /* ['sizes']['thumbnail']
-    ['source_url']; */
-    console.log({ title, thumbnail });
+      ?.['sizes']
+      ?.['thumbnail']
+      ?.['source_url'];
     return {
       id: id,
       link: link,
@@ -63,17 +64,20 @@ export default function Home() {
 
   useEffect(() => handleData(), [handleData])
 
+  const renderLoadingState = () => {
+    return loading
+      ? <SyncLoader color='#666666' />
+      : <button onClick={() => setPageNumber(pageNumber + 1)}>
+        LOAD MORE
+      </button>
+  }
+
   const renderContent = () => {
     return (
       <>
         <Gallery posts={posts} />
         <div className={styles.loadMoreContainer}>
-          {loading
-            ? <SyncLoader />
-            : <button onClick={() => setPageNumber(pageNumber + 1)}>
-              LOAD MORE
-            </button>
-          }
+          {renderLoadingState()}
         </div>
       </>
     )

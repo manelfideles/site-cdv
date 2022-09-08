@@ -1,9 +1,8 @@
 import { useState } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { logo, barsIcon, searchIcon } from '../../../public/assets';
-
-import styles from './Navbar.module.css';
+import styles from './Navbar.module.scss';
 
 export default function Navbar() {
 
@@ -18,7 +17,7 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <a className={styles.logo} href='/'>
-        <img src={logo} height={150} width={250} />
+        <Image src='/assets/icons/logo.svg' height={150} width={250} />
       </a>
       <div className={styles.navigation}>
         <a href="/">About</a>
@@ -26,15 +25,11 @@ export default function Navbar() {
         <a href="/">Research</a>
         <a href="/">Publications</a>
         <a href="/">
-          <img
-            src={searchIcon}
-            height={18}
-            width={18}
-          />
+          <Image src='/assets/icons/search.svg' height={18} width={18} />
         </a>
       </div>
       <a className={styles.logoMobile} href='/'>
-        <img src={logo} height={50} width={100} />
+        <Image src='/assets/icons/logo.svg' height={50} width={100} />
       </a>
       {isOpen
         ? (
@@ -45,17 +40,25 @@ export default function Navbar() {
             >
               Close
             </button>
-            <button onClick={() => changePage('/')}>About</button>
-            <button onClick={() => changePage('/')}>People</button>
-            <button onClick={() => changePage('/')}>Research</button>
-            <button onClick={() => changePage('/')}>Publications</button>
+            <button onClick={() => changePage('/')}>
+              About
+            </button>
+            <button onClick={() => changePage('/')}>
+              People
+            </button>
+            <button onClick={() => changePage('/')}>
+              Research
+            </button>
+            <button onClick={() => changePage('/')}>
+              Publications
+            </button>
           </div>
         )
         : <button
           onClick={() => setIsOpen(true)}
           className={styles.mobileButton}
         >
-          <img src={barsIcon} height={25} width={25} />
+          <Image src='/assets/icons/bars-solid.svg' height={25} width={25} />
         </button>
       }
     </nav>
