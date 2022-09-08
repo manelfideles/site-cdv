@@ -2,25 +2,35 @@ import Image from 'next/image';
 
 import styles from './Footer.module.scss';
 
+import logo from '../../../public/assets/icons/logo.svg';
+import facebookLogo from '../../../public/assets/icons/facebook.svg';
+import instagramLogo from '../../../public/assets/icons/instagram.svg';
+import vimeoLogo from '../../../public/assets/icons/vimeo.svg';
+
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.navigation}>
         <a href='/'>
-          <Image src='/assets/icons/logo.svg' height={115} width={150} />
+          <Image
+            src={logo}
+            alt='CDV Lab Logo'
+            height={115}
+            width={150}
+          />
         </a>
         <ul>
           <li>
-            <a href="/">About</a>
+            <a href='/'>About</a>
           </li>
           <li>
-            <a href="/">People</a>
+            <a href='/'>People</a>
           </li>
           <li>
-            <a href="/">Research</a>
+            <a href='/'>Research</a>
           </li>
           <li>
-            <a href="/">Publications</a>
+            <a href='/'>Publications</a>
           </li>
         </ul>
       </div>
@@ -34,14 +44,29 @@ export default function Footer() {
         </a>
       </div>
       <div className={styles.socials}>
-        <a href="https://www.facebook.com/cdvlaboratory/">
-          <Image src='/assets/icons/facebook.svg' height={25} width={25} />
+        <a href='https://www.facebook.com/cdvlaboratory/'>
+          <Image
+            src={facebookLogo}
+            alt='CDV Lab Facebook Page'
+            height={25}
+            width={25}
+          />
         </a>
-        <a href="https://www.instagram.com/cdv.lab/">
-          <Image src='/assets/icons/instagram.svg' height={25} width={25} />
+        <a href='https://www.instagram.com/cdv.lab/'>
+          <Image
+            src={instagramLogo}
+            alt='CDV Lab Instagram Page'
+            height={25}
+            width={25}
+          />
         </a>
-        <a href="https://vimeo.com/cdvlab">
-          <Image src='/assets/icons/vimeo.svg' height={25} width={25} />
+        <a href='https://vimeo.com/cdvlab'>
+          <Image
+            src={vimeoLogo}
+            alt='CDV Lab Vimeo Page'
+            height={25}
+            width={25}
+          />
         </a>
       </div>
     </footer>

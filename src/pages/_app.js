@@ -9,8 +9,8 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>CDV Lab</title>
-        <meta name="description" content="Computational Design & Visualization Lab's @ DEI-UC" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='description' content="Computational Design & Visualization Lab's @ DEI-UC" />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <Navbar />
       <Component {...pageProps} />

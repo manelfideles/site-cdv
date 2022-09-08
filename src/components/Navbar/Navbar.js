@@ -4,6 +4,10 @@ import { useRouter } from 'next/router';
 
 import styles from './Navbar.module.scss';
 
+import logo from '../../../public/assets/icons/logo.svg';
+import searchIcon from '../../../public/assets/icons/search.svg';
+import hamburgerIcon from '../../../public/assets/icons/bars-solid.svg';
+
 export default function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false)
@@ -17,19 +21,34 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <a className={styles.logo} href='/'>
-        <Image src='/assets/icons/logo.svg' height={150} width={250} />
+        <Image
+          src={logo}
+          alt='CDV Lab Logo'
+          height={150}
+          width={250}
+        />
       </a>
       <div className={styles.navigation}>
-        <a href="/">About</a>
-        <a href="/">People</a>
-        <a href="/">Research</a>
-        <a href="/">Publications</a>
-        <a href="/">
-          <Image src='/assets/icons/search.svg' height={18} width={18} />
+        <a href='/'>About</a>
+        <a href='/'>People</a>
+        <a href='/'>Research</a>
+        <a href='/'>Publications</a>
+        <a href='/'>
+          <Image
+            src={searchIcon}
+            alt='Search Icon'
+            height={18}
+            width={18}
+          />
         </a>
       </div>
       <a className={styles.logoMobile} href='/'>
-        <Image src='/assets/icons/logo.svg' height={50} width={100} />
+        <Image
+          src={logo}
+          alt='CDV Lab Logo'
+          height={50}
+          width={100}
+        />
       </a>
       {isOpen
         ? (
@@ -58,7 +77,12 @@ export default function Navbar() {
           onClick={() => setIsOpen(true)}
           className={styles.mobileButton}
         >
-          <Image src='/assets/icons/bars-solid.svg' height={25} width={25} />
+          <Image
+            src={hamburgerIcon}
+            alt='Menu Icon'
+            height={25}
+            width={25}
+          />
         </button>
       }
     </nav>
