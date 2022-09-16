@@ -61,6 +61,7 @@ export default function Home() {
       /* TO-DO: Change this if field is present in response object */
       setHasNextPage(true);
     }
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
   }, [loading])
 
   useEffect(() => {

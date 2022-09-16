@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import styles from './Navbar.module.scss';
 
@@ -20,70 +21,85 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      <a className={styles.logo} href='/'>
-        <Image
-          src={logo}
-          alt='CDV Lab Logo'
-          height={150}
-          width={250}
-        />
-      </a>
-      <div className={styles.navigation}>
-        <a href='/'>About</a>
-        <a href='/'>People</a>
-        <a href='/'>Research</a>
-        <a href='/'>Publications</a>
-        <a href='/'>
+      <Link href='/'>
+        <a className={styles.logo}>
           <Image
-            src={searchIcon}
-            alt='Search Icon'
-            height={18}
-            width={18}
+            src={logo}
+            alt='CDV Lab Logo'
+            height={150}
+            width={250}
           />
         </a>
+      </Link>
+      <div className={styles.navigation}>
+        <Link href='/'>
+          <a>About</a>
+        </Link>
+        <Link href='/'>
+          <a>People</a>
+        </Link>
+        <Link href='/'>
+          <a>Research</a>
+        </Link>
+        <Link href='/'>
+          <a>Publications</a>
+        </Link>
+        <Link href='/'>
+          <a>
+            <Image
+              src={searchIcon}
+              alt='Search Icon'
+              height={18}
+              width={18}
+            />
+          </a>
+        </Link>
       </div>
-      <a className={styles.logoMobile} href='/'>
-        <Image
-          src={logo}
-          alt='CDV Lab Logo'
-          height={50}
-          width={100}
-        />
-      </a>
-      {isOpen
-        ? (
-          <div className={styles.navigationMobile}>
-            <button
-              onClick={() => setIsOpen(false)}
-              className={close}
-            >
-              Close
-            </button>
-            <button onClick={() => changePage('/')}>
-              About
-            </button>
-            <button onClick={() => changePage('/')}>
-              People
-            </button>
-            <button onClick={() => changePage('/')}>
-              Research
-            </button>
-            <button onClick={() => changePage('/')}>
-              Publications
-            </button>
-          </div>
-        )
-        : <button
-          onClick={() => setIsOpen(true)}
-          className={styles.mobileButton}
-        >
+      <Link href='/'>
+        <a className={styles.logoMobile}>
           <Image
-            src={hamburgerIcon}
-            alt='Menu Icon'
-            height={25}
-            width={25}
+            src={logo}
+            alt='CDV Lab Logo'
+            height={50}
+            width={100}
           />
-        </button>
+        </a>
+      </Link>
+      {
+        isOpen
+          ? (
+            <div className={styles.navigationMobile}>
+              <button
+                onClick={() => setIsOpen(false)}
+                className={close}
+              >
+                Close
+              </button>
+              <button onClick={() => changePage('/')}>
+                About
+              </button>
+              <button onClick={() => changePage('/')}>
+                People
+              </button>
+              <button onClick={() => changePage('/')}>
+                Research
+              </button>
+              <button onClick={() => changePage('/')}>
+                Publications
+              </button>
+            </div>
+          )
+          : <button
+            onClick={() => setIsOpen(true)}
+            className={styles.mobileButton}
+          >
+            <Image
+              src={hamburgerIcon}
+              alt='Menu Icon'
+              height={25}
+              width={25}
+            />
+          </button>
       }
     </nav>
   )
