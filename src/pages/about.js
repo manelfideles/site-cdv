@@ -148,7 +148,7 @@ export default function About() {
           MSc thesis proposals are announced in the news.
           We welcome your application.
           To apply send an e-mail to cdvlab[at]dei.uc.pt with
-          the following subject line: 'CDV Lab.: Application'.
+          the following subject line: {"'CDV Lab.: Application'"}.
         </p>
       </details>
       <details>
@@ -157,7 +157,7 @@ export default function About() {
           We are open to project proposals and ideas
           within our scope of intervention.
           Contact us by sending an e-mail to cdvlab[at]dei.uc.pt with
-          the following subject line: 'CDV Lab.: Project Proposal'.
+          the following subject line: {"'CDV Lab.: Project Proposal'"}.
         </p>
       </details>
     </main>
