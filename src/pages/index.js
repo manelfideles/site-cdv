@@ -22,7 +22,10 @@ export default function Home() {
   const {
     data,
     loading
-  } = useFetch({ query });
+  } = useFetch({
+    method: 'getPosts',
+    query: query
+  });
 
   const formatPost = (post) => {
     const { id, link, title } = post;

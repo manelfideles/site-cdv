@@ -6,7 +6,7 @@ import {
 
 import api from 'networking';
 
-export const useFetch = ({ query }) => {
+export const useFetch = ({ method, query }) => {
 
   const [data, setData] = useState(undefined);
   const [error, setError] = useState(null);
@@ -14,8 +14,7 @@ export const useFetch = ({ query }) => {
 
   const fetchData = useCallback(() => {
     setLoading(true);
-    api
-      .getPosts(query)
+    api[method](query || '')
       .then(res => setData(res.data))
       .catch(err => setError(err))
       .finally(() => setLoading(false))
