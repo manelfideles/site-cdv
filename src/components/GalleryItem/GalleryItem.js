@@ -1,6 +1,12 @@
 import styles from './GalleryItem.module.scss';
 
-export default function GalleryItem({ title, link, thumbnail, term }) {
+export default function GalleryItem({
+  title,
+  subtitle,
+  link,
+  thumbnail,
+  term,
+}) {
 
   const renderThumbnail = () => {
     return ![undefined, null].includes(thumbnail)
@@ -23,6 +29,11 @@ export default function GalleryItem({ title, link, thumbnail, term }) {
       />
       <a href={link}>
         {title}
+        {subtitle
+          && <span>
+            {subtitle}
+          </span>
+        }
       </a>
     </div>
   )

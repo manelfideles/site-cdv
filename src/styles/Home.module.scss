@@ -2,7 +2,7 @@
 
 .loadMoreContainer {
   @include flex($justifyContent: center);
-  @include size(100%, 20vh);
+  @include size(100%, 10vh);
 
   &>button {
     @include font($fontWeight: 600, $color: $neutralDark20);

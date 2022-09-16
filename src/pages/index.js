@@ -95,7 +95,7 @@ export default function Home() {
   }
 
   return (
-    <main className={styles.home}>
+    <main>
       <Hero />
       {renderContent()}
     </main>

@@ -26,16 +26,16 @@ export default function Navbar() {
           <Image
             src={logo}
             alt='CDV Lab Logo'
-            height={150}
+            height={125}
             width={250}
           />
         </a>
       </Link>
       <div className={styles.navigation}>
-        <Link href='/'>
+        <Link href='/about'>
           <a>About</a>
         </Link>
-        <Link href='/'>
+        <Link href='/people'>
           <a>People</a>
         </Link>
         <Link href='/'>
@@ -75,10 +75,10 @@ export default function Navbar() {
               >
                 Close
               </button>
-              <button onClick={() => changePage('/')}>
+              <button onClick={() => changePage('/about')}>
                 About
               </button>
-              <button onClick={() => changePage('/')}>
+              <button onClick={() => changePage('/people')}>
                 People
               </button>
               <button onClick={() => changePage('/')}>

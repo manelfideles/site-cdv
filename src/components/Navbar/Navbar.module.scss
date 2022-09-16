@@ -2,7 +2,7 @@
 
 .navbar {
   @include flex($justifyContent: space-between);
-  padding: 0 5rem;
+  padding: 1vh 5vw;
 
   .logo {
     margin-left: 0.5rem;

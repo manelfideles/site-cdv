@@ -1,0 +1,48 @@
+@import 'styles/mixins.scss';
+
+.aboutWrapper {
+  margin-left: 1.5rem;
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    margin-bottom: 2.5rem;
+    margin-left: 2rem;
+    list-style-type: '- ';
+
+    span {
+      font-weight: 600;
+    }
+
+    li {
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  .collaborations>li {
+    a {
+      @include link($color: $black, $bottom: 0, $isActive: true);
+      width: fit-content;
+      cursor: pointer;
+    }
+  }
+
+  details {
+    margin-left: 1.5rem;
+
+    summary {
+      font-style: italic;
+    }
+
+    p {
+      margin-left: 2rem;
+      margin-top: 0.5rem;
+    }
+  }
+}

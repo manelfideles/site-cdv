@@ -1,0 +1,19 @@
+@import 'styles/mixins.scss';
+
+.staffListWrapper {
+  margin: 0 0 3rem 1.5rem;
+
+  &>div {
+    margin-bottom: 4rem;
+
+    h2 {
+      margin-bottom: 2rem;
+    }
+
+    &>div {
+      @include grid(1fr,
+        repeat(auto-fit, minmax(150px, 1fr)),
+        2rem);
+    }
+  }
+}
