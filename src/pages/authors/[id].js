@@ -10,21 +10,25 @@ import getBestImageSize from 'utils';
 const mockContacts = ['Email', 'ORCID', 'Twitter', 'Linkedin'];
 const mockProjects = [
 	<GalleryItem
+		key={1}
 		title='Project 1'
 		link=''
 		thumbnail='/assets/images/placeholder.jpg'
 	/>,
 	<GalleryItem
+		key={2}
 		title='Project 2'
 		link=''
 		thumbnail='/assets/images/placeholder.jpg'
 	/>,
 	<GalleryItem
+		key={3}
 		title='Project 3'
 		link=''
 		thumbnail='/assets/images/placeholder.jpg'
 	/>,
 	<GalleryItem
+		key={4}
 		title='Project 4'
 		link=''
 		thumbnail='/assets/images/placeholder.jpg'
