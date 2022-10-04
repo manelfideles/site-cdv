@@ -69,8 +69,8 @@ export default function Author() {
 					</div>
 					<div>
 						<h4>Contacts</h4>
-						{mockContacts.map(contact => (
-							<p>
+						{mockContacts.map((contact, idx) => (
+							<p key={idx}>
 								<span style={{ textDecoration: 'underline' }}>
 									{contact}
 								</span>: {name.toLowerCase().replaceAll(' ', '-')}
