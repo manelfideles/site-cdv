@@ -1,11 +1,35 @@
 import { useFetch } from 'hooks/useFetch';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+
+import GalleryItem from 'components/GalleryItem';
 import Spinner from 'components/Spinner';
 
 import styles from 'styles/Author.module.scss';
-import getBestAvatar from 'utils';
+import getBestImageSize from 'utils';
 
 const mockContacts = ['Email', 'ORCID', 'Twitter', 'Linkedin'];
+const mockProjects = [
+	<GalleryItem
+		title='Project 1'
+		link=''
+		thumbnail='/assets/images/placeholder.jpg'
+	/>,
+	<GalleryItem
+		title='Project 2'
+		link=''
+		thumbnail='/assets/images/placeholder.jpg'
+	/>,
+	<GalleryItem
+		title='Project 3'
+		link=''
+		thumbnail='/assets/images/placeholder.jpg'
+	/>,
+	<GalleryItem
+		title='Project 4'
+		link=''
+		thumbnail='/assets/images/placeholder.jpg'
+	/>,
+]
 
 export default function Author() {
 	const router = useRouter();
@@ -29,7 +53,7 @@ export default function Author() {
 			<div className={styles.authorInfoWrapper}>
 				<div>
 					<img
-						src={getBestAvatar(imageSizes, 200, 75)}
+						src={getBestImageSize(imageSizes, 200, 75)}
 						alt={`${name} profile picture`}
 					/>
 					<h2>{name}</h2>
@@ -55,12 +79,7 @@ export default function Author() {
 			<div className={styles.relatedProjects}>
 				<h3>Related Projects</h3>
 				<div>
-					<img src='/assets/images/placeholder.jpg' width={150} />
-					<img src='/assets/images/placeholder.jpg' width={150} />
-					<img src='/assets/images/placeholder.jpg' width={150} />
-					<img src='/assets/images/placeholder.jpg' width={150} />
-					<img src='/assets/images/placeholder.jpg' width={150} />
-					<img src='/assets/images/placeholder.jpg' width={150} />
+					{mockProjects.map(proj => proj)}
 				</div>
 			</div>
 		</>

@@ -1,6 +1,6 @@
 // Retrieve image with dimensions inside the
 // range [threshold - offset, threshold + offset]
-export default function getBestAvatar(media, threshold, offset) {
+export default function getBestImageSize(media, threshold, offset) {
 	const min = threshold - offset;
 	const max = threshold + offset;
 	const between = (val, min, max) =>

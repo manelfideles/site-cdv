@@ -3,14 +3,15 @@ import {
   useEffect,
   useCallback
 } from 'react';
-import Spinner from 'components/Spinner';
 
 import { useFetch } from 'hooks/useFetch';
 
 import Gallery from 'components/Gallery';
 import Hero from 'components/Hero';
+import Spinner from 'components/Spinner';
 
 import styles from 'styles/Home.module.scss';
+import getBestImageSize from 'utils';
 
 const baseQuery = '?_embed&_fields=id,title,link,_links&page=1&per_page=15';
 
@@ -29,13 +30,11 @@ export default function Home() {
 
   const formatPost = (post) => {
     const { id, link, title } = post;
-    const thumbnail = post
+    const imageSizes = post
       ?.['_embedded']
       ?.['wp:featuredmedia']
       ?.[0]['media_details']
       ?.['sizes']
-      ?.['thumbnail']
-      ?.['source_url'];
 
     const term = post
       ?.['_embedded']
@@ -46,7 +45,9 @@ export default function Home() {
       id: id,
       link: link,
       title: title.rendered,
-      thumbnail: thumbnail,
+      thumbnail: imageSizes
+        ? getBestImageSize(imageSizes, 300, 100)
+        : undefined,
       term: term,
     }
   }

@@ -1,5 +1,5 @@
 import { useFetch } from 'hooks/useFetch';
-import getBestAvatar from 'utils';
+import getBestImageSize from 'utils';
 
 import GalleryItem from 'components/GalleryItem';
 import Spinner from 'components/Spinner';
@@ -49,7 +49,7 @@ export default function People() {
               key={user?.id}
               title={user?.title.rendered}
               link={encodeURIComponent(user?.slug)}
-              thumbnail={getBestAvatar(imageSizes, 150, 50)}
+              thumbnail={getBestImageSize(imageSizes, 150, 50)}
               subtitle={getRandomElement(mockRoles)}
               term='user'
               id={user?.id}

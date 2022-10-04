@@ -29,7 +29,7 @@
 
 		>div {
 			@include grid(1fr,
-				repeat(auto-fit, minmax(150px, 1fr)),
+				repeat(auto-fit, minmax(150px, 1rem)),
 				1rem);
 			margin-top: 1rem;
 
