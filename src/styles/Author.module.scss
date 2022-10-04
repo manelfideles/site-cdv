@@ -1,0 +1,41 @@
+@import 'styles/mixins.scss';
+
+.authorWrapper {
+	margin: 0 0 3rem 1.75rem;
+
+	.authorInfoWrapper {
+		@include flex($flexDirection: row,
+			$alignItems: flex-start,
+			$gap: 2rem,
+		);
+
+		>div>img {
+			margin-bottom: 1rem;
+		}
+
+		h4 {
+			margin-bottom: 0.5rem;
+		}
+
+		.authorInfo {
+			>div {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+
+	.relatedProjects {
+		margin-top: 3rem;
+
+		>div {
+			@include grid(1fr,
+				repeat(auto-fit, minmax(150px, 1fr)),
+				1rem);
+			margin-top: 1rem;
+
+			>img {
+				border: 1px solid black;
+			}
+		}
+	}
+}

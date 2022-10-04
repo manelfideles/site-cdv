@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import styles from './GalleryItem.module.scss';
 
 export default function GalleryItem({
@@ -6,8 +8,8 @@ export default function GalleryItem({
   link,
   thumbnail,
   term,
+  id
 }) {
-
   const renderThumbnail = () => {
     return ![undefined, null].includes(thumbnail)
       ? thumbnail
@@ -27,14 +29,17 @@ export default function GalleryItem({
         alt='post thumbnail'
         height={calcThumbnailHeight()}
       />
-      <a href={link}>
-        {title}
-        {subtitle
-          && <span>
-            {subtitle}
-          </span>
+      <Link
+        href={id
+          ? `/authors/${id}`
+          : link
         }
-      </a>
+      >
+        <a>
+          {title}
+          {subtitle && <span>{subtitle}</span>}
+        </a>
+      </Link>
     </div>
   )
 }

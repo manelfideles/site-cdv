@@ -1,7 +1,8 @@
 import { useFetch } from 'hooks/useFetch';
-import { SyncLoader } from 'react-spinners';
+import getBestAvatar from 'utils';
 
 import GalleryItem from 'components/GalleryItem';
+import Spinner from 'components/Spinner';
 
 import styles from 'styles/People.module.scss';
 
@@ -20,7 +21,7 @@ export default function People() {
     loading
   } = useFetch({
     method: 'getUsers',
-    query: '?page=1&per_page=100'
+    query: '?_embed&per_page=100'
   });
 
   const getRandomElement = (arr) => {
@@ -30,33 +31,46 @@ export default function People() {
     return arr[randomIndex];
   }
 
-  const renderStaffList = () => {
+  const renderStaffList = (start, stop) => {
     return (
       <div>
-        {data.map(user => (
-          <GalleryItem
-            key={user?.id}
-            title={user?.name}
-            link={user?.link}
-            thumbnail={user?.avatar_urls['96']}
-            subtitle={getRandomElement(mockRoles)}
-            term='user'
-          />
-        ))}
+        {/*
+          TODO - remove slice quando todos os users
+          tiverem o author_status
+        */}
+        {data.slice(start, stop).map(user => {
+          if (user?._embedded?.['wp:featuredmedia']) {
+            const imageSizes = user
+              ?._embedded
+              ?.['wp:featuredmedia']?.[0]
+              .media_details.sizes;
+
+            return <GalleryItem
+              key={user?.id}
+              title={user?.title.rendered}
+              link={encodeURIComponent(user?.slug)}
+              thumbnail={getBestAvatar(imageSizes, 150, 50)}
+              subtitle={getRandomElement(mockRoles)}
+              term='user'
+              id={user?.id}
+            />
+          }
+          return null;
+        })}
       </div>
     )
   }
 
   const renderContent = () => {
     return loading
-      ? <SyncLoader color='#666666' />
+      ? <Spinner />
       : <><div>
         <h2>Current Members</h2>
-        {renderStaffList()}
+        {renderStaffList(0, 20)}
       </div>
         <div>
           <h2>Former Members</h2>
-          {renderStaffList()}
+          {renderStaffList(22, 100)}
         </div></>
   }
 

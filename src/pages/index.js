@@ -3,7 +3,7 @@ import {
   useEffect,
   useCallback
 } from 'react';
-import { SyncLoader } from 'react-spinners';
+import Spinner from 'components/Spinner';
 
 import { useFetch } from 'hooks/useFetch';
 
@@ -53,7 +53,6 @@ export default function Home() {
 
   const handleData = useCallback(() => {
     if (!loading) {
-      console.log({ data });
       setPosts([
         ...posts,
         ...data.map(post => formatPost(post))
@@ -77,7 +76,7 @@ export default function Home() {
 
   const renderLoadingState = () => {
     return loading
-      ? <SyncLoader color='#666666' />
+      ? <Spinner />
       : <button onClick={() => setPageNumber(pageNumber + 1)}>
         LOAD MORE
       </button>

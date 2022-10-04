@@ -1,0 +1,7 @@
+@import 'styles/mixins.scss';
+
+.loader {
+	@include flex($justifyContent: center);
+	width: 100%;
+	height: 25vh;
+}
