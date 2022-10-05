@@ -14,6 +14,7 @@ export const useFetch = ({ method, query }) => {
 
   const fetchData = useCallback(() => {
     setLoading(true);
+    if (query.includes('undefined')) return;
     api[method](query || '')
       .then(res => setData(res.data))
       .catch(err => setError(err))

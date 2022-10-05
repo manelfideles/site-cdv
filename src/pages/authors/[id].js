@@ -1,5 +1,5 @@
 import { useFetch } from 'hooks/useFetch';
-import { useRouter } from 'next/router';
+import { useQueryParam } from 'hooks/useQueryParam';
 
 import GalleryItem from 'components/GalleryItem';
 import Spinner from 'components/Spinner';
@@ -36,8 +36,7 @@ const mockProjects = [
 ]
 
 export default function Author() {
-	const router = useRouter();
-	const { id } = router.query;
+	const id = useQueryParam('id');
 	const { data, loading } = useFetch({
 		method: 'getUsers',
 		query: `/${id}?_fields=title,author_meta,_links&_embed`
@@ -46,8 +45,8 @@ export default function Author() {
 	const renderAuthor = () => {
 		const name = data?.title.rendered;
 		const bio = data
-			.author_meta
-			.author_bio[0]
+			?.author_meta
+			?.author_bio[0]
 		const imageSizes = data
 			?._embedded
 			?.['wp:featuredmedia']?.[0]

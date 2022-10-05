@@ -4,7 +4,7 @@
   @include flex($justifyContent: space-between);
   @include font($fontSize: 0.75rem);
   background-color: $neutralLight20;
-  padding: 1rem 5rem;
+  padding: 1vh 4.5vw 1vh 6vw;
   line-height: 150%;
 
   .navigation {
