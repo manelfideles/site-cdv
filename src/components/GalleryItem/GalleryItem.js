@@ -31,7 +31,7 @@ export default function GalleryItem({
       />
       <Link
         href={id
-          ? `/authors/${id}`
+          ? `/people/${id}`
           : link
         }
       >

@@ -4,9 +4,10 @@
   @include flex($flexDirection: column, $gap: 0, $justifyContent: center);
   @include font($fontSize: 1.75rem, $textAlign: center);
   margin: 0 auto;
-  width: 65vw;
-  max-width: 45rem;
-  padding-bottom: 7.5vh;
+  width: 68vw;
+  max-width: 50rem;
+  padding: 7.5vh;
+  padding-bottom: 20vh;
 
   &>p {
     font-weight: 600;

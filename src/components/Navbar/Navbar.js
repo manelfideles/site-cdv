@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,9 +10,18 @@ import searchIcon from '../../../public/assets/icons/search.svg';
 import hamburgerIcon from '../../../public/assets/icons/bars-solid.svg';
 
 export default function Navbar() {
-
-  const [isOpen, setIsOpen] = useState(false)
   const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const scrollOffset = 0;
+
+  useEffect(() => {
+    const handleScroll = () => setScrollPosition(Math.round(window.scrollY));
+    handleScroll();
+    window
+      .addEventListener('scroll', handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const changePage = (page) => {
     router.push(page);
@@ -22,12 +31,9 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <Link href='/'>
-        <a className={styles.logo}>
-          <Image
-            src={logo}
-            alt='CDV Lab Logo'
-            height={125}
-            width={250}
+        <a className={`${styles.logo} ${Math.round(!!(scrollPosition > scrollOffset)) && styles.compact}`}>
+          <img src='/assets/icons/logo.svg'
+            alt='cdv logo'
           />
         </a>
       </Link>
@@ -38,8 +44,11 @@ export default function Navbar() {
         <Link href='/people'>
           <a>People</a>
         </Link>
-        <Link href='/'>
+        <Link href='/projects'>
           <a>Research</a>
+        </Link>
+        <Link href='/news'>
+          <a>News</a>
         </Link>
         <Link href='/'>
           <a>Publications</a>
@@ -101,6 +110,6 @@ export default function Navbar() {
             />
           </button>
       }
-    </nav>
+    </nav >
   )
 }

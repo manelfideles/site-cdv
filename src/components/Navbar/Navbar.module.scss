@@ -3,9 +3,29 @@
 .navbar {
   @include flex($justifyContent: space-between);
   padding: 1vh 5vw;
+  position: sticky;
+  top: 0px;
+  z-index: 100;
+  background-color: $white;
 
   .logo {
-    margin-left: 0.5rem;
+    img {
+      @include size(250px, 125px);
+      margin-left: 0.75rem;
+      transform: scale(1, 1);
+      transform-origin: center left;
+      transition: transform .3s ease-in-out;
+      transition: height .2s ease-in-out;
+      transition: width .2s ease-in-out;
+    }
+  }
+
+  .compact {
+    img {
+      @include size(125px, 75px);
+      margin-left: 1.5rem;
+      transform: scale(0.75, 0.75);
+    }
   }
 
   .navigation {

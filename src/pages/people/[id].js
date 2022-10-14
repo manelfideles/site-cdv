@@ -5,35 +5,16 @@ import GalleryItem from 'components/GalleryItem';
 import Spinner from 'components/Spinner';
 
 import styles from 'styles/Author.module.scss';
-import getBestImageSize from 'utils';
+import { getBestImageSize } from 'utils';
 
 const mockContacts = ['Email', 'ORCID', 'Twitter', 'Linkedin'];
-const mockProjects = [
+const mockProjects = [...Array(4)].map((_, i) => (
 	<GalleryItem
-		key={1}
-		title='Project 1'
+		key={i}
+		title={`Project ${i + 1}`}
 		link=''
-		thumbnail='/assets/images/placeholder.jpg'
-	/>,
-	<GalleryItem
-		key={2}
-		title='Project 2'
-		link=''
-		thumbnail='/assets/images/placeholder.jpg'
-	/>,
-	<GalleryItem
-		key={3}
-		title='Project 3'
-		link=''
-		thumbnail='/assets/images/placeholder.jpg'
-	/>,
-	<GalleryItem
-		key={4}
-		title='Project 4'
-		link=''
-		thumbnail='/assets/images/placeholder.jpg'
-	/>,
-]
+		thumbnail='/assets/images/polka-dots-2.jpg' />
+))
 
 export default function Author() {
 	const id = useQueryParam('id');

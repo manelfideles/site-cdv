@@ -5,13 +5,11 @@ import {
 } from 'react';
 
 import { useFetch } from 'hooks/useFetch';
+import { formatPost } from 'utils';
 
 import Gallery from 'components/Gallery';
 import Hero from 'components/Hero';
-import Spinner from 'components/Spinner';
-
-import styles from 'styles/Home.module.scss';
-import getBestImageSize from 'utils';
+import LoadMore from 'components/LoadMore';
 
 const baseQuery = '?_embed&_fields=id,title,link,_links&page=1&per_page=15';
 
@@ -27,30 +25,6 @@ export default function Home() {
     method: 'getPosts',
     query: query
   });
-
-  const formatPost = (post) => {
-    const { id, link, title } = post;
-    const imageSizes = post
-      ?.['_embedded']
-      ?.['wp:featuredmedia']
-      ?.[0]['media_details']
-      ?.['sizes']
-
-    const term = post
-      ?.['_embedded']
-      ?.['wp:term']
-      ?.[0][0]['slug']
-
-    return {
-      id: id,
-      link: link,
-      title: title.rendered,
-      thumbnail: imageSizes
-        ? getBestImageSize(imageSizes, 300, 100)
-        : undefined,
-      term: term,
-    }
-  }
 
   const handleData = useCallback(() => {
     if (!loading) {
@@ -75,21 +49,14 @@ export default function Home() {
 
   useEffect(() => handleData(), [handleData])
 
-  const renderLoadingState = () => {
-    return loading
-      ? <Spinner />
-      : <button onClick={() => setPageNumber(pageNumber + 1)}>
-        LOAD MORE
-      </button>
-  }
-
   const renderContent = () => {
     return (
       <>
         <Gallery posts={posts} />
-        <div className={styles.loadMoreContainer}>
-          {renderLoadingState()}
-        </div>
+        <LoadMore
+          isLoading={loading}
+          onClick={() => setPageNumber(pageNumber + 1)}
+        />
       </>
     )
   }

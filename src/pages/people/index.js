@@ -1,5 +1,5 @@
 import { useFetch } from 'hooks/useFetch';
-import getBestImageSize from 'utils';
+import { getBestImageSize } from 'utils';
 
 import GalleryItem from 'components/GalleryItem';
 import Spinner from 'components/Spinner';
