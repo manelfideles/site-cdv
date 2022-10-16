@@ -21,8 +21,8 @@ export default function Project() {
 	const renderTags = () => {
 		return data
 			._embedded['wp:term'][1]
-			.map(({ name, slug }) => (
-				<li>
+			.map(({ name, slug }, idx) => (
+				<li key={idx}>
 					<Pill text={name} url={slug} />
 				</li>
 			))

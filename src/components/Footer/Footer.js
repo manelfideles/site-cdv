@@ -10,8 +10,8 @@ import { navLinks } from 'utils';
 export default function Footer() {
 
   const renderNavLinks = () => {
-    return navLinks.map(link =>
-      <li>
+    return navLinks.map((link, idx) =>
+      <li key={idx}>
         <Link href={link.url}>
           <a>{link.name}</a>
         </Link>
@@ -20,17 +20,18 @@ export default function Footer() {
   }
 
   const renderLocationLink = () => {
-    const location = locationLink.info.map(info => <p>{info}</p>)
+    const location = locationLink
+      .info.map((info, idx) => <p>{info}</p>)
     return (
-      <Link href={locationLink.url}>
+      <Link href={locationLink.url} key={idx}>
         <a>{location}</a>
       </Link>
     )
   }
 
   const renderSocialMediaLinks = () => {
-    return socialMediaLinks.map(link =>
-      <Link href={link.url}>
+    return socialMediaLinks.map((link, idx) =>
+      <Link href={link.url} key={idx}>
         <a>
           <Image
             src={link.src}

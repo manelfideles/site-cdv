@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -11,7 +10,6 @@ import searchIcon from '../../../public/assets/icons/search.svg';
 import { navLinks } from 'utils';
 
 export default function Navbar() {
-  const router = useRouter();
   const [scrollPosition, setScrollPosition] = useState(0);
   const scrollOffset = 0;
 
@@ -24,8 +22,8 @@ export default function Navbar() {
   }, [])
 
   const renderNavLinks = () => {
-    return navLinks.map(link => (
-      <Link href={link.url}>
+    return navLinks.map((link, idx) => (
+      <Link href={link.url} key={idx}>
         <a>{link.name}</a>
       </Link>
     ))
