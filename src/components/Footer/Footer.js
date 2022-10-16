@@ -21,9 +21,11 @@ export default function Footer() {
 
   const renderLocationLink = () => {
     const location = locationLink
-      .info.map((info, idx) => <p>{info}</p>)
+      .info.map((info, idx) => <p key={idx}>
+        {info}
+      </p>)
     return (
-      <Link href={locationLink.url} key={idx}>
+      <Link href={locationLink.url}>
         <a>{location}</a>
       </Link>
     )
