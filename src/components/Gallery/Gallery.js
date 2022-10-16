@@ -24,7 +24,7 @@ export default function Gallery({ posts }) {
       <GalleryItem
         key={id}
         title={title}
-        link={link}
+        link={term === 'projects' ? `/projects/${id}` : `/news/${id}`}
         thumbnail={thumbnail}
         term={term}
       />
