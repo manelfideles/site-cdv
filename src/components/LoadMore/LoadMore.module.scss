@@ -2,9 +2,10 @@
 
 .loadMoreContainer {
 	@include flex($justifyContent: center);
-	@include size(fit-content, 25vh);
+	padding: 2rem;
 
 	&>button {
+		@include flex($justifyContent: center);
 		@include font($fontWeight: 600, $color: $neutralDark20);
 		background-color: transparent;
 		border: none;

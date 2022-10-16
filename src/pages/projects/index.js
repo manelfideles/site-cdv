@@ -12,7 +12,7 @@ import LoadMore from 'components/LoadMore';
 import styles from 'styles/Projects.module.scss';
 import GalleryItem from 'components/GalleryItem';
 
-const baseQuery = '?_fields=id,title,link,_links&_embed&page=1&per_page=15';
+const baseQuery = '?_fields=id,title,link,_links&_embed&page=1&per_page=30';
 
 export default function Research() {
 	const [posts, setPosts] = useState([]);
@@ -56,20 +56,26 @@ export default function Research() {
 			.map(({
 				id, link,
 				title, thumbnail
-			}) => <GalleryItem
+			}) => {
+				console.log({ link, id });
+				return <GalleryItem
 					key={id}
 					id={id}
-					link={link}
+					link={`/projects/${id}`}
 					term='projects'
 					title={title}
 					thumbnail={thumbnail}
-				/>)
+				/>
+			}
+			)
 	}
 
 	return (
 		<main className={styles.projectsWrapper}>
 			<h2>Research</h2>
-			{renderProjects()}
+			<div className={styles.postsWrapper}>
+				{renderProjects()}
+			</div>
 			<div>
 				<LoadMore
 					isLoading={loading}

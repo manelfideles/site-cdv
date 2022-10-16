@@ -7,11 +7,11 @@ import styles from './Navbar.module.scss';
 
 import logo from '../../../public/assets/icons/logo.svg';
 import searchIcon from '../../../public/assets/icons/search.svg';
-import hamburgerIcon from '../../../public/assets/icons/bars-solid.svg';
+
+import { navLinks } from 'utils';
 
 export default function Navbar() {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false)
   const [scrollPosition, setScrollPosition] = useState(0);
   const scrollOffset = 0;
 
@@ -23,9 +23,12 @@ export default function Navbar() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const changePage = (page) => {
-    router.push(page);
-    setIsOpen(false);
+  const renderNavLinks = () => {
+    return navLinks.map(link => (
+      <Link href={link.url}>
+        <a>{link.name}</a>
+      </Link>
+    ))
   }
 
   return (
@@ -38,21 +41,7 @@ export default function Navbar() {
         </a>
       </Link>
       <div className={styles.navigation}>
-        <Link href='/about'>
-          <a>About</a>
-        </Link>
-        <Link href='/people'>
-          <a>People</a>
-        </Link>
-        <Link href='/projects'>
-          <a>Research</a>
-        </Link>
-        <Link href='/news'>
-          <a>News</a>
-        </Link>
-        <Link href='/'>
-          <a>Publications</a>
-        </Link>
+        {renderNavLinks()}
         <Link href='/'>
           <a>
             <Image
@@ -74,42 +63,6 @@ export default function Navbar() {
           />
         </a>
       </Link>
-      {
-        isOpen
-          ? (
-            <div className={styles.navigationMobile}>
-              <button
-                onClick={() => setIsOpen(false)}
-                className={close}
-              >
-                Close
-              </button>
-              <button onClick={() => changePage('/about')}>
-                About
-              </button>
-              <button onClick={() => changePage('/people')}>
-                People
-              </button>
-              <button onClick={() => changePage('/')}>
-                Research
-              </button>
-              <button onClick={() => changePage('/')}>
-                Publications
-              </button>
-            </div>
-          )
-          : <button
-            onClick={() => setIsOpen(true)}
-            className={styles.mobileButton}
-          >
-            <Image
-              src={hamburgerIcon}
-              alt='Menu Icon'
-              height={25}
-              width={25}
-            />
-          </button>
-      }
     </nav >
   )
 }

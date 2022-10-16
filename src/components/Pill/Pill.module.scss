@@ -1,0 +1,14 @@
+@import 'styles/mixins.scss';
+
+.pillWrapper {
+	@include size(fit-content, auto);
+	@include container($borderRadius: 20px,
+		$padding: 0.5rem 1rem,
+	);
+	@include font($fontSize: 0.75rem);
+
+	&:hover {
+		cursor: pointer;
+		border: 1px solid $black;
+	}
+}

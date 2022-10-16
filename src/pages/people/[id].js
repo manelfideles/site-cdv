@@ -12,7 +12,7 @@ const mockProjects = [...Array(4)].map((_, i) => (
 	<GalleryItem
 		key={i}
 		title={`Project ${i + 1}`}
-		link=''
+		link='/projects'
 		thumbnail='/assets/images/polka-dots-2.jpg' />
 ))
 

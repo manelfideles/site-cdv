@@ -4,11 +4,45 @@ import Link from 'next/link';
 import styles from './Footer.module.scss';
 
 import logo from '../../../public/assets/icons/logo.svg';
-import facebookLogo from '../../../public/assets/icons/facebook.svg';
-import instagramLogo from '../../../public/assets/icons/instagram.svg';
-import vimeoLogo from '../../../public/assets/icons/vimeo.svg';
+import { socialMediaLinks, locationLink } from './utils';
+import { navLinks } from 'utils';
 
 export default function Footer() {
+
+  const renderNavLinks = () => {
+    return navLinks.map(link =>
+      <li>
+        <Link href={link.url}>
+          <a>{link.name}</a>
+        </Link>
+      </li>
+    )
+  }
+
+  const renderLocationLink = () => {
+    const location = locationLink.info.map(info => <p>{info}</p>)
+    return (
+      <Link href={locationLink.url}>
+        <a>{location}</a>
+      </Link>
+    )
+  }
+
+  const renderSocialMediaLinks = () => {
+    return socialMediaLinks.map(link =>
+      <Link href={link.url}>
+        <a>
+          <Image
+            src={link.src}
+            alt={link.alt}
+            height={link.height}
+            width={link.width}
+          />
+        </a>
+      </Link>
+    )
+  }
+
   return (
     <footer className={styles.footer}>
       <div className={styles.navigation}>
@@ -23,70 +57,14 @@ export default function Footer() {
           </a>
         </Link>
         <ul>
-          <li>
-            <Link href='/'>
-              <a >About</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/'>
-              <a>People</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/'>
-              <a>Research</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/'>
-              <a>Publications</a>
-            </Link>
-          </li>
+          {renderNavLinks()}
         </ul>
       </div>
       <div>
-        <Link href='https://www.google.com/maps/place/Departamento+de+Engenharia+Inform%C3%A1tica+-+FCTUC/@40.1859758,-8.4164071,17z/data=!4m7!1m4!3m3!1s0xd22f8c2c7cbeeb7:0x400ebbde49031d0!2sCoimbra!3b1!3m1!1s0x0:0xd3822ec1d359eb52'>
-          <a>
-            <p>Departamento de Engenharia Informática</p>
-            <p>Faculdade de Ciências e Tecnologia</p>
-            <p>Universidade de Coimbra</p>
-            <p>Pólo II - Pinhal de Marrocos</p>
-            <p>3030-290 Coimbra</p>
-          </a>
-        </Link>
+        {renderLocationLink()}
       </div>
       <div className={styles.socials}>
-        <Link href='https://www.facebook.com/cdvlaboratory/'>
-          <a>
-            <Image
-              src={facebookLogo}
-              alt='CDV Lab Facebook Page'
-              height={25}
-              width={25}
-            />
-          </a>
-        </Link>
-        <Link href='https://www.instagram.com/cdv.lab/'>
-          <a>
-            <Image
-              src={instagramLogo}
-              alt='CDV Lab Instagram Page'
-              height={25}
-              width={25}
-            />
-          </a>
-        </Link>
-        <Link href='https://vimeo.com/cdvlab'>
-          <a>
-            <Image
-              src={vimeoLogo}
-              alt='CDV Lab Vimeo Page'
-              height={25}
-              width={25}
-            />
-          </a>
-        </Link>
+        {renderSocialMediaLinks()}
       </div>
     </footer>
   )

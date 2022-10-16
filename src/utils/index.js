@@ -35,3 +35,26 @@ export function formatPost(post) {
 		term: term,
 	}
 }
+
+export const navLinks = [
+	{
+		'name': 'About',
+		'url': '/about'
+	},
+	{
+		'name': 'People',
+		'url': '/people'
+	},
+	{
+		'name': 'Research',
+		'url': '/projects'
+	},
+	{
+		'name': 'News',
+		'url': '/news'
+	},
+	{
+		'name': 'Publications',
+		'url': '/publications'
+	},
+]

@@ -48,7 +48,7 @@ export default function People() {
             return <GalleryItem
               key={user?.id}
               title={user?.title.rendered}
-              link={encodeURIComponent(user?.slug)}
+              link={`/people/${user?.id}`}
               thumbnail={getBestImageSize(imageSizes, 150, 50)}
               subtitle={getRandomElement(mockRoles)}
               term='user'

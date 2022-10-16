@@ -29,12 +29,7 @@ export default function GalleryItem({
         alt='post thumbnail'
         height={calcThumbnailHeight()}
       />
-      <Link
-        href={id
-          ? `/people/${id}`
-          : link
-        }
-      >
+      <Link href={link}>
         <a>
           {title}
           {subtitle && <span>{subtitle}</span>}

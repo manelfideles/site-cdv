@@ -2,5 +2,5 @@
 
 .loader {
 	@include flex($justifyContent: center);
-	@include size(100%, 25vh);
+	padding: 2rem;
 }
