@@ -57,7 +57,6 @@ export default function Research() {
 				id, link,
 				title, thumbnail
 			}) => {
-				console.log({ link, id });
 				return <GalleryItem
 					key={id}
 					id={id}

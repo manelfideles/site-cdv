@@ -28,6 +28,11 @@ export default function Project() {
 			))
 	}
 
+	const formatHtml = () => {
+		return data.content.rendered
+			.replaceAll('<p>&nbsp;</p>', '')
+	}
+
 	const renderContent = () => {
 		const imageSizes = data
 			?._embedded
@@ -42,7 +47,6 @@ export default function Project() {
 					alt={'project display image'}
 				/>
 				<h2>{data.title.rendered}</h2>
-				<p>Published on {data.date.split('T')[0]}</p>
 				<div>
 					<h4>Author</h4>
 					<p>
@@ -54,7 +58,12 @@ export default function Project() {
 				<ul className={styles.tagsWrapper}>
 					{renderTags()}
 				</ul>
-				<p>{data.content.rendered}</p>
+				<div
+					dangerouslySetInnerHTML={{ __html: formatHtml(data.content.rendered) }}
+					style={{ width: '100%' }}
+					className={styles.contentWrapper}
+				>
+				</div>
 			</>
 	}
 
