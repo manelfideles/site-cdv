@@ -1,20 +1,24 @@
+import facebookLogo from '../../../public/assets/icons/facebook.svg';
+import instagramLogo from '../../../public/assets/icons/instagram.svg';
+import vimeoLogo from '../../../public/assets/icons/vimeo.svg';
+
 export const socialMediaLinks = [
 	{
-		'src': 'assets/icons/facebook.svg',
+		'src': facebookLogo,
 		'url': 'https://www.facebook.com/cdvlaboratory/',
 		'alt': 'CDV Lab Facebook Page',
 		'height': 25,
 		'width': 25
 	},
 	{
-		'src': 'assets/icons/instagram.svg',
+		'src': instagramLogo,
 		'url': 'https://www.instagram.com/cdv.lab/',
 		'alt': 'CDV Lab Instagram Page',
 		'height': 25,
 		'width': 25
 	},
 	{
-		'src': 'assets/icons/vimeo.svg',
+		'src': vimeoLogo,
 		'url': 'https://vimeo.com/cdvlab',
 		'alt': 'CDV Lab Vimeo Page',
 		'height': 25,

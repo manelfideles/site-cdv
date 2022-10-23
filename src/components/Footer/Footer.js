@@ -1,11 +1,14 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 import styles from './Footer.module.scss';
 
+import logo from '../../../public/assets/icons/logo.svg';
 import { socialMediaLinks, locationLink } from './utils';
 import { navLinks } from 'utils';
 
 export default function Footer() {
+
   const renderNavLinks = () => {
     return navLinks.map((link, idx) =>
       <li key={idx}>
@@ -32,7 +35,7 @@ export default function Footer() {
     return socialMediaLinks.map((link, idx) =>
       <Link href={link.url} key={idx}>
         <a>
-          <img
+          <Image
             src={link.src}
             alt={link.alt}
             height={link.height}
@@ -47,8 +50,8 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.navigation}>
         <Link href='/'>
-          <img
-            src='assets/icons/logo.svg'
+          <Image
+            src={logo}
             alt='CDV Lab Logo'
             height={115}
             width={150}
