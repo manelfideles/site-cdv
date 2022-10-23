@@ -4,7 +4,7 @@ import { useQueryParam } from 'hooks/useQueryParam';
 import GalleryItem from 'components/GalleryItem';
 import Spinner from 'components/Spinner';
 
-import styles from 'styles/Author.module.scss';
+import styles from 'styles/page-styles/Author.module.scss';
 import { getBestImageSize } from 'utils';
 
 const mockContacts = ['Email', 'ORCID', 'Twitter', 'Linkedin'];
