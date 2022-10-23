@@ -1,4 +1,6 @@
-import FeedTemplate from 'components/FeedTemplate';
+import dynamic from 'next/dynamic';
+
+const FeedTemplate = dynamic(() => import('components/FeedTemplate'))
 
 export default function News() {
 	return (

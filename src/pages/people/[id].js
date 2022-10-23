@@ -1,11 +1,14 @@
+import dynamic from 'next/dynamic';
+
+const GalleryItem = dynamic(() => import('components/GalleryItem'));
+const Spinner = dynamic(() => import('components/Spinner'));
+
 import { useFetch } from 'hooks/useFetch';
 import { useQueryParam } from 'hooks/useQueryParam';
 
-import GalleryItem from 'components/GalleryItem';
-import Spinner from 'components/Spinner';
+import { getBestImageSize } from 'utils';
 
 import styles from 'styles/page-styles/Author.module.scss';
-import { getBestImageSize } from 'utils';
 
 const mockContacts = ['Email', 'ORCID', 'Twitter', 'Linkedin'];
 const mockProjects = [...Array(4)].map((_, i) => (
@@ -45,7 +48,7 @@ export default function Author() {
 				<div className={styles.authorInfo}>
 					<div>
 						<h4>Biography</h4>
-						<p>{bio}</p>
+						<p dangerouslySetInnerHTML={{ __html: bio }}></p>
 					</div>
 					<div>
 						<h4>Contacts</h4>

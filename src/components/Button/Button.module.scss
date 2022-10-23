@@ -1,6 +1,6 @@
 @import 'styles/mixins.scss';
 
-.loadMoreContainer {
+.buttonContainer {
 	@include flex($justifyContent: center);
 	padding: 2rem;
 

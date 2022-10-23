@@ -1,8 +1,9 @@
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import { SWRConfig } from 'swr';
 
-import Navbar from 'components/Navbar';
-import Footer from 'components/Footer';
+const Navbar = dynamic(() => import('components/Navbar'))
+const Footer = dynamic(() => import('components/Footer'))
 
 import 'styles/globals.scss';
 

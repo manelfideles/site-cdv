@@ -1,12 +1,14 @@
+import dynamic from 'next/dynamic';
+
+const Link = dynamic(() => import('next/link'));
+const Pill = dynamic(() => import('components/Pill'));
+const Spinner = dynamic(() => import('components/Spinner'));
+
 import { useFetch } from 'hooks/useFetch'
 import { useQueryParam } from 'hooks/useQueryParam';
-import Link from 'next/link';
-
-import Pill from 'components/Pill';
-import Spinner from 'components/Spinner';
+import { getBestImageSize } from 'utils';
 
 import styles from './Post.module.scss';
-import { getBestImageSize } from 'utils';
 
 export default function Post() {
 	const id = useQueryParam('id');

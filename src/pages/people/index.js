@@ -1,8 +1,10 @@
+import dynamic from 'next/dynamic';
+
+const GalleryItem = dynamic(() => import('components/GalleryItem'));
+const Spinner = dynamic(() => import('components/Spinner'));
+
 import { useFetch } from 'hooks/useFetch';
 import { getBestImageSize } from 'utils';
-
-import GalleryItem from 'components/GalleryItem';
-import Spinner from 'components/Spinner';
 
 import styles from 'styles/page-styles/People.module.scss';
 

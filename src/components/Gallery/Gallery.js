@@ -1,8 +1,10 @@
-import Masonry from 'react-masonry-css';
+import dynamic from 'next/dynamic';
 
-import GalleryItem from 'components/GalleryItem';
-import LoadMore from 'components/LoadMore';
-import Spinner from 'components/Spinner';
+const Masonry = dynamic(() => import('react-masonry-css'));
+
+const Button = dynamic(() => import('components/Button'))
+const GalleryItem = dynamic(() => import('components/GalleryItem'))
+const Spinner = dynamic(() => import('components/Spinner'))
 
 import { useInfiniteScroll } from 'hooks/useInfiniteScroll';
 import { formatPost } from 'utils';
@@ -43,8 +45,9 @@ export default function Gallery({ pageSize, postType }) {
       <div className={styles.loadingStateWrapper}>
         {isLoading
           ? <Spinner />
-          : <LoadMore
+          : <Button
             onClick={() => setSize(currentSize => currentSize + 1)}
+            btnText='load more'
           />
         }
       </div>

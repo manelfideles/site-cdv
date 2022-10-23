@@ -1,5 +1,7 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
+
+const Image = dynamic(() => import('next/image'));
+const Link = dynamic(() => import('next/link'));
 
 import styles from './Footer.module.scss';
 

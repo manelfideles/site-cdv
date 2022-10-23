@@ -1,4 +1,6 @@
-import Gallery from 'components/Gallery';
+import dynamic from 'next/dynamic';
+
+const Gallery = dynamic(() => import('components/Gallery'));
 
 import styles from './FeedTemplate.module.scss';
 
