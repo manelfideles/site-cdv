@@ -19,20 +19,17 @@ export function formatPost(post) {
 		?.['wp:featuredmedia']
 		?.[0]['media_details']
 		?.['sizes']
-
 	const term = post
 		?.['_embedded']
 		?.['wp:term']
 		?.[0][0]['slug']
 
 	return {
-		id: id,
-		link: link,
+		id, link, term,
 		title: title.rendered,
 		thumbnail: imageSizes
 			? getBestImageSize(imageSizes, 300, 100)
 			: undefined,
-		term: term,
 	}
 }
 

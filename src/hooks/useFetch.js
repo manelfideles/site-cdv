@@ -1,31 +1,14 @@
-import {
-  useState,
-  useEffect,
-  useCallback
-} from 'react';
+import useSWR from 'swr';
 
 import api from 'networking';
 
 export const useFetch = ({ method, query }) => {
-
-  const [data, setData] = useState(undefined);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  const fetchData = useCallback(() => {
-    setLoading(true);
-    if (query.includes('undefined')) return;
-    api[method](query || '')
-      .then(res => setData(res.data))
-      .catch(err => setError(err))
-      .finally(() => setLoading(false))
-  }, [query])
-
-  useEffect(() => fetchData(), [fetchData]);
+  const fetcher = query => api[method](query || '').then(res => res.data);
+  const { data, error } = useSWR(query, fetcher);
 
   return {
     data,
-    loading,
-    error
+    error,
+    loading: !error && !data
   }
 }

@@ -8,10 +8,12 @@
   }
 
   a {
-    @include flex($flexDirection: column, $alignItems: flex-start, $gap: 0);
-    @include font($fontWeight: 700);
-    background-color: $white;
-    width: 100%;
+    :first-child {
+      @include flex($flexDirection: column, $alignItems: flex-start, $gap: 0);
+      @include font($fontWeight: 700);
+      background-color: $white;
+      width: 100%;
+    }
 
     span {
       @include font($fontSize: small);

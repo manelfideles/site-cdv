@@ -4,7 +4,7 @@ import { getBestImageSize } from 'utils';
 import GalleryItem from 'components/GalleryItem';
 import Spinner from 'components/Spinner';
 
-import styles from 'styles/People.module.scss';
+import styles from 'styles/page-styles/People.module.scss';
 
 const mockRoles = [
   'Scientific Director',

@@ -1,75 +1,7 @@
-import { useFetch } from 'hooks/useFetch'
-import { useQueryParam } from 'hooks/useQueryParam';
-import Link from 'next/link';
-
-import Pill from 'components/Pill';
-import Spinner from 'components/Spinner';
-
-import styles from 'styles/Project.module.scss';
-import { getBestImageSize } from 'utils';
+import Post from 'components/Post';
 
 export default function Project() {
-	const id = useQueryParam('id');
-	const {
-		data,
-		loading
-	} = useFetch({
-		method: 'getPosts',
-		query: `/${id}?_embed`
-	});
-
-	const renderTags = () => {
-		return data
-			._embedded['wp:term'][1]
-			.map(({ name, slug }, idx) => (
-				<li key={idx}>
-					<Pill text={name} url={slug} />
-				</li>
-			))
-	}
-
-	const formatHtml = () => {
-		return data.content.rendered
-			.replaceAll('<p>&nbsp;</p>', '')
-	}
-
-	const renderContent = () => {
-		const imageSizes = data
-			?._embedded
-			?.['wp:featuredmedia']?.[0]
-			.media_details.sizes;
-
-		return loading
-			? <Spinner />
-			: <>
-				<img
-					src={getBestImageSize(imageSizes, 700, 100)}
-					alt={'project display image'}
-				/>
-				<h2>{data.title.rendered}</h2>
-				<div>
-					<h4>Author</h4>
-					<p>
-						<Link href={`/people/${data.author}`}>
-							{data._embedded.author[0].name}
-						</Link>
-					</p>
-				</div>
-				<ul className={styles.tagsWrapper}>
-					{renderTags()}
-				</ul>
-				<div
-					dangerouslySetInnerHTML={{ __html: formatHtml(data.content.rendered) }}
-					style={{ width: '100%' }}
-					className={styles.contentWrapper}
-				>
-				</div>
-			</>
-	}
-
 	return (
-		<main className={styles.projectWrapper}>
-			{renderContent()}
-		</main>
+		<Post />
 	)
 }

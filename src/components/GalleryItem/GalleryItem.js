@@ -8,7 +8,6 @@ export default function GalleryItem({
   link,
   thumbnail,
   term,
-  id
 }) {
   const renderThumbnail = () => {
     return ![undefined, null].includes(thumbnail)
@@ -31,7 +30,12 @@ export default function GalleryItem({
       />
       <Link href={link}>
         <a>
-          {title}
+          {title
+            && <span dangerouslySetInnerHTML={{
+              __html: title
+            }}>
+            </span>
+          }
           {subtitle && <span>{subtitle}</span>}
         </a>
       </Link>

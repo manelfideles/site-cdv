@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import styles from 'styles/About.module.scss';
+import styles from 'styles/page-styles/About.module.scss';
 
 export default function About() {
   return (
