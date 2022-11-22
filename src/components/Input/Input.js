@@ -7,7 +7,7 @@ import styles from './Input.module.scss';
 export default function Input() {
 	return (
 		<div className={styles.inputContainer}>
-			<label for='email'>
+			<label htmlFor='email'>
 				Sign up to our newsletter
 			</label>
 			<div>
