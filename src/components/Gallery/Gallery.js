@@ -11,7 +11,7 @@ import { formatPost } from 'utils';
 
 import styles from './Gallery.module.scss';
 
-const breakpointConfig = { default: 4, 600: 1, 900: 2, 1200: 3 }
+const breakpointConfig = { default: 4, 600: 1, 800: 2, 1000: 3 }
 
 export default function Gallery({ pageSize, postType }) {
   const { posts, isLoading, setSize } = useInfiniteScroll({
@@ -21,20 +21,21 @@ export default function Gallery({ pageSize, postType }) {
 
   const buildPostList = () => {
     return posts?.map(post => {
-      const { id, title, thumbnail, term } = formatPost(post)
+      const { id, title, thumbnail, term, postedAt } = formatPost(post)
       if (!postType || term === postType)
         return <GalleryItem
           key={id}
           title={title}
           link={`/${term}/${id}`}
           thumbnail={thumbnail}
+          postedAt={postedAt}
           term={term}
         />
     })
   }
 
   return (
-    <>
+    <div className={styles.galleryContainer}>
       <Masonry
         breakpointCols={breakpointConfig}
         className={styles._grid}
@@ -51,6 +52,6 @@ export default function Gallery({ pageSize, postType }) {
           />
         }
       </div>
-    </>
+    </div>
   )
 }

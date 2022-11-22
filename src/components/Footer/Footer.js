@@ -1,11 +1,10 @@
 import dynamic from 'next/dynamic';
 
-const Image = dynamic(() => import('next/image'));
 const Link = dynamic(() => import('next/link'));
+const Input = dynamic(() => import('components/Input'));
 
 import styles from './Footer.module.scss';
 
-import logo from '../../../public/assets/icons/logo.svg';
 import { socialMediaLinks, locationLink } from './utils';
 import { navLinks } from 'utils';
 
@@ -22,10 +21,10 @@ export default function Footer() {
   }
 
   const renderLocationLink = () => {
-    const location = locationLink
-      .info.map((info, idx) => <p key={idx}>
+    const location = locationLink.info.map(
+      (info, idx) => <p key={idx}>
         {info}
-      </p>)
+      </p>);
     return (
       <Link href={locationLink.url}>
         <a>{location}</a>
@@ -37,12 +36,7 @@ export default function Footer() {
     return socialMediaLinks.map((link, idx) =>
       <Link href={link.url} key={idx}>
         <a>
-          <Image
-            src={link.src}
-            alt={link.alt}
-            height={link.height}
-            width={link.width}
-          />
+          <span>{link.name}</span>
         </a>
       </Link>
     )
@@ -50,24 +44,22 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.navigation}>
-        <Link href='/'>
-          <Image
-            src={logo}
-            alt='CDV Lab Logo'
-            height={115}
-            width={150}
-          />
-        </Link>
-        <ul>
-          {renderNavLinks()}
-        </ul>
+      <div>
+        <Input />
+        <div className={styles.navigation}>
+          <p>{renderSocialMediaLinks()}</p>
+          <p>
+            <span>© 2022</span>
+            <span>CDV Lab.</span>
+            <span>CMS/CISUC</span>
+          </p>
+        </div>
       </div>
+      <ul>
+        {renderNavLinks()}
+      </ul>
       <div>
         {renderLocationLink()}
-      </div>
-      <div className={styles.socials}>
-        {renderSocialMediaLinks()}
       </div>
     </footer>
   )

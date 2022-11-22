@@ -18,7 +18,7 @@ export default function Spinner({ size = 'm', ...rest }) {
 				<g
 					strokeWidth={200}
 					strokeLinecap="round"
-					stroke="currentColor"
+					stroke="black"
 					fill="none"
 				>
 					<path d="M1200 600L1200 100" />

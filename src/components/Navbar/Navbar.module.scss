@@ -2,35 +2,28 @@
 
 .navbar {
   @include flex($justifyContent: space-between);
-  padding: 1vh 5vw;
+  @include container($padding: 2.5vh 2.5vw, $backgroundColor: $white, $boxShadow: none);
   position: sticky;
-  top: 0px;
-  z-index: 100;
-  background-color: $white;
+  z-index: 10;
+  border-bottom: 1px solid $black;
+  transition: top 0.3s ease-in-out;
 
   .logo {
-    img {
-      @include size(250px, 125px);
-      margin-left: 0.75rem;
-      transform: scale(1, 1);
-      transform-origin: center left;
-      transition: transform .3s ease-in-out;
-      transition: height .2s ease-in-out;
-      transition: width .2s ease-in-out;
-    }
-  }
+    @include flex();
 
-  .compact {
-    img {
-      @include size(125px, 75px);
-      margin-left: 1.5rem;
-      transform: scale(0.75, 0.75);
+    >img {
+      @include size(8rem, 8rem);
+    }
+
+    >span {
+      @include font($fontWeight: 600, $fontSize: 2rem);
+      width: 45%;
     }
   }
 
   .navigation {
     @include flex($gap: 2rem);
-    font-weight: 600;
+    @include font($fontWeight: 400, $fontSize: 1.5rem);
   }
 }
 
@@ -41,50 +34,4 @@
 
 .navigationMobile {
   display: none;
-}
-
-@media only screen and (max-width: 700px) {
-
-  .navigation,
-  .logo {
-    display: none;
-  }
-
-  .mobileButton {
-    display: flex;
-    margin-right: 1em;
-    background: none;
-    border: none;
-  }
-
-  .logoMobile {
-    display: flex;
-    margin: 3.5em 0 3em 1em;
-    padding-right: 2em;
-  }
-
-  .navigationMobile {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background-color: black;
-    color: white;
-    justify-content: center;
-    padding: 0 2em;
-  }
-
-  .navigationMobile button {
-    margin: 1em 6em;
-    background: none;
-    color: white;
-    border: none;
-    font-weight: bold;
-    font-size: 1.25em;
-  }
-
-  .navigationMobile button:hover {
-    text-decoration: underline;
-  }
 }

@@ -1,19 +1,16 @@
 @import 'styles/mixins.scss';
 
-.buttonContainer {
-	@include flex($justifyContent: center);
-	padding: 2rem;
+.button {
+	@include flex($justifyContent: center, $alignItems: center);
+	@include font($fontSize: 1.5rem, $fontWeight: 400, $color: $black);
+	@include container($padding: 1rem 2.5rem, $boxShadow: none, $borderColor: $black, $borderRadius: none);
+	text-transform: capitalize;
+	transition: background-color 0.3s ease-in-out;
+	transition: color 0.3s ease-in-out;
 
-	&>button {
-		@include flex($justifyContent: center);
-		@include font($fontWeight: 600, $color: $neutralDark20);
-		background-color: transparent;
-		border: none;
-		text-transform: uppercase;
-
-		&:hover {
-			text-decoration: underline;
-			cursor: pointer;
-		}
+	&:hover {
+		cursor: pointer;
+		background-color: $black;
+		color: $white;
 	}
 }

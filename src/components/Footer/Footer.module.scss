@@ -2,21 +2,37 @@
 
 .footer {
   @include flex($justifyContent: space-between);
-  @include font($fontSize: 0.75rem);
-  background-color: $neutralLight20;
-  padding: 1vh 4.5vw 1vh 6vw;
+  @include font($fontSize: 1rem, $color: $black);
   line-height: 150%;
+  border-top: 1px solid $black;
+  padding: 1.5rem 4rem;
 
+  >:first-child,
   .navigation {
-    @include flex();
+    @include flex($gap: 1rem,
+      $flexDirection: column,
+      $alignItems: flex-start,
+      $justifyContent: flex-start,
+    );
+  }
 
-    &>ul {
-      list-style-type: none;
+  .navigation>p {
+    span {
+      margin-right: 1rem;
     }
+  }
+
+  .navigation>:first-child {
+    text-decoration: underline;
   }
 
   .socials {
     @include flex();
     margin-right: 0.5em;
+  }
+
+  ul {
+    list-style-type: none;
+    text-decoration: underline;
   }
 }

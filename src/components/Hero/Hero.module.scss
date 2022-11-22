@@ -1,15 +1,9 @@
 @import 'styles/mixins.scss';
 
 .hero {
-  @include flex($flexDirection: column, $gap: 0, $justifyContent: center);
-  @include font($fontSize: 1.75rem, $textAlign: center);
-  margin: 0 auto;
-  width: 68vw;
-  max-width: 50rem;
-  padding: 7.5vh;
-  padding-bottom: 20vh;
-
-  &>p {
-    font-weight: 600;
-  }
+  @include font($fontSize: 4rem);
+  margin: 5vh 2.5vw;
+  width: 60%;
+  min-width: 20rem;
+  max-width: 120rem;
 }

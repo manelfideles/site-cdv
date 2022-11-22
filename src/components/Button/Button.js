@@ -5,10 +5,11 @@ export default function Button({
 	onClick,
 }) {
 	return (
-		<div className={styles.buttonContainer}>
-			<button onClick={onClick}>
-				{btnText}
-			</button>
-		</div>
+		<button
+			onClick={onClick}
+			className={styles.button}
+		>
+			{btnText}
+		</button>
 	)
 }

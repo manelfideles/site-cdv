@@ -1,19 +1,21 @@
-._grid {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: auto;
-}
+@import 'styles/mixins.scss';
 
-._column {
-    padding-left: 2rem;
-    background-clip: padding-box;
-}
+.galleryContainer {
+    margin: 0 2.5vw;
 
-._column>div {
-    margin-bottom: 2rem;
-}
+    ._grid {
+        @include flex($alignItems: flex-start, $gap: 2rem);
+    }
 
-.loadingStateWrapper {
-    margin-bottom: 2rem;
+    ._column {
+        background-clip: padding-box;
+    }
+
+    ._column>div {
+        margin-bottom: 2rem;
+    }
+
+    .loadingStateWrapper {
+        margin: 4rem 0;
+    }
 }

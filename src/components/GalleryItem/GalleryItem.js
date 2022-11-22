@@ -7,6 +7,7 @@ import styles from './GalleryItem.module.scss';
 export default function GalleryItem({
   title,
   subtitle,
+  postedAt,
   link,
   thumbnail,
   term,
@@ -30,13 +31,14 @@ export default function GalleryItem({
         alt='post thumbnail'
         height={calcThumbnailHeight()}
       />
+      {postedAt && <span>{postedAt}</span>}
       <Link href={link}>
         <a>
           {title
-            && <span dangerouslySetInnerHTML={{
-              __html: title
-            }}>
-            </span>
+            && <span
+              dangerouslySetInnerHTML={{
+                __html: title
+              }}></span>
           }
           {subtitle && <span>{subtitle}</span>}
         </a>

@@ -23,14 +23,41 @@ export function formatPost(post) {
 		?.['_embedded']
 		?.['wp:term']
 		?.[0][0]['slug']
+	const postedAt = post
+		?.['_embedded']
+		?.['wp:featuredmedia']
+		?.[0]['date']
+		?.split('T')[0]
 
 	return {
 		id, link, term,
 		title: title.rendered,
+		postedAt: formatDate(postedAt, months),
 		thumbnail: imageSizes
 			? getBestImageSize(imageSizes, 300, 100)
 			: undefined,
 	}
+}
+
+const months = [
+	'Jan',
+	'Feb',
+	'Mar',
+	'Apr',
+	'May',
+	'Jun',
+	'Jul',
+	'Aug',
+	'Sep',
+	'Oct',
+	'Nov',
+	'Dec',
+]
+
+export const formatDate = (date, months) => {
+	if (date === undefined) return '';
+	const [year, month,] = date?.split('-');
+	return `${months[month - 1]}. ${year}`
 }
 
 export const navLinks = [
@@ -55,3 +82,18 @@ export const navLinks = [
 		'url': '/publications'
 	},
 ]
+
+export function debounce(func, wait, immediate) {
+	var timeout;
+	return function () {
+		var context = this, args = arguments;
+		var later = function () {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
