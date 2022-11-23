@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['cdv.dei.uc.pt'],
+    domains: ['cdv-dev.dei.uc.pt', 'cdv.dei.uc.pt',],
     minimumCacheTTL: 60 * 15,
   },
   compress: true,

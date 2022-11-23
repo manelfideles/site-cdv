@@ -10,7 +10,11 @@ export const useInfiniteScroll = ({ method, pageSize }) => {
 		setSize
 	} = useSWRInfinite(
 		index => `?_embed&_fields=id,title,link,_links&page=${index + 1}&per_page=${pageSize}`,
-		fetcher
+		fetcher,
+		{
+			refreshInterval: 60 * 60 * 1000,
+			revalidateFirstPage: false
+		}
 	);
 
 	return {
@@ -18,6 +22,7 @@ export const useInfiniteScroll = ({ method, pageSize }) => {
 		isLoading: (!data && !error)
 			|| (size > 0 && data && typeof data[size - 1] === "undefined"),
 		error,
+		size,
 		setSize,
 	}
 }

@@ -55,6 +55,7 @@ export default function People() {
               subtitle={getRandomElement(mockRoles)}
               term='user'
               id={user?.id}
+              imageQuality={50}
             />
           }
           return null;

@@ -9,7 +9,7 @@ import 'styles/globals.scss';
 
 function MyApp({ Component, pageProps }) {
   const getRefreshInterval = (minutes) => minutes * 60 * 1000;
-  const swrConfig = { refreshInterval: getRefreshInterval(15) };
+  const swrConfig = { refreshInterval: getRefreshInterval(60) };
 
   return (
     <>

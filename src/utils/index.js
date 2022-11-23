@@ -7,7 +7,7 @@ export function getBestImageSize(media, threshold, offset) {
 		val >= min && val <= max;
 	for (let i = 0; i < Object.entries(media).length; i++) {
 		const imgInfo = Object.entries(media)[i][1];
-		if (between(imgInfo.width, min, max) || between(imgInfo.height, min, max))
+		if (between(imgInfo.width, min, max) && between(imgInfo.height, min, max))
 			return imgInfo.source_url;
 	}
 }

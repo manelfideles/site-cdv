@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 
 const Link = dynamic(() => import('next/link'));
 
@@ -11,6 +12,7 @@ export default function GalleryItem({
   link,
   thumbnail,
   term,
+  imageQuality = 75,
 }) {
   const renderThumbnail = () => {
     return ![undefined, null].includes(thumbnail)
@@ -26,10 +28,14 @@ export default function GalleryItem({
 
   return (
     <div className={styles.itemCard}>
-      <img
+      <Image
         src={renderThumbnail()}
+        placeholder='blur'
+        quality={imageQuality}
+        blurDataURL='/assets/images/placeholder.jpg'
         alt='post thumbnail'
         height={calcThumbnailHeight()}
+        width='150px'
       />
       {postedAt && <span>{postedAt}</span>}
       <Link href={link}>
@@ -44,5 +50,6 @@ export default function GalleryItem({
         </a>
       </Link>
     </div>
+
   )
 }
