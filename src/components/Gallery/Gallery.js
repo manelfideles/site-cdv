@@ -15,7 +15,7 @@ import styles from './Gallery.module.scss';
 const breakpointConfig = { default: 4, 600: 1, 800: 2, 1000: 3 }
 
 export default function Gallery({ pageSize, postType }) {
-  const { posts, isLoading, size, setSize } = useInfiniteScroll({
+  const { posts, isLoading, setSize } = useInfiniteScroll({
     method: 'getPosts',
     pageSize
   });
